@@ -10,6 +10,7 @@ Voting System
 # Authors
 
 * Jose Labra
+* Alejandro Pazos
 
 
 
