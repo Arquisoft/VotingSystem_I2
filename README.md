@@ -11,6 +11,8 @@ Voting System
 
 * Jose Labra
 * Alejandro Pazos
+* Daniel Ortea Mendez
+* Santiago Casero Laredo
 
 
 
