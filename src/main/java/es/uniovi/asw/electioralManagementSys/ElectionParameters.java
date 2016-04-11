@@ -1,4 +1,4 @@
-package es.uniovi.asw.electioralManagementSys;
+package es.uniovi.asw.electioralmanagementsys;
 
 import java.sql.Date;
 import java.util.List;
