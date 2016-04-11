@@ -1,4 +1,4 @@
-package es.uniovi.asw.electioralmanagementsys;
+package es.uniovi.asw.electoralmanagementsys;
 
 public class PoliticalParty {
 	private String paryName;
