@@ -1,15 +1,12 @@
-package es.uniovi.Electoral.main;
+package es.uniovi.electoral.main;
 
-import java.io.Console;
-import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import es.uniovi.Electoral.model.*;
+import es.uniovi.electoral.model.*;
 
 public class Main {
 
@@ -19,7 +16,7 @@ public class Main {
 	private static List<Option> options = new ArrayList<Option>();
 	private static List<PollingStation> stations = new ArrayList<PollingStation>();
 	private static String type = "";
-	static Configuration conf = null;
+	static Configuration conf;
 
 	/**
 	 * @param args
@@ -31,8 +28,7 @@ public class Main {
 	public static void run(Scanner scanner, PrintWriter out) {
 		scnr = scanner;
 		prnt = out;
-		out.println("Welcome to the Electoral Process Management\n"
-				+ "Remember you can enter Q in any form to quit\n\n"
+		out.println("Welcome to the Electoral Process Management\n\n"
 				+ "Please select an electoral option:" + "\n\t1- Referendum"
 				+ "\n\t2- Election");
 		Integer option = null;
@@ -40,7 +36,7 @@ public class Main {
 		while (option == null) {
 			try {
 				option = Integer
-						.parseInt(process("Introduce an option number or 'Q' to quit"));
+						.parseInt(process("Introduce an option number"));
 			} catch (Exception e) {
 				out.println("Invalid data, please try again");
 				option = null;
@@ -89,8 +85,7 @@ public class Main {
 			stations.add(new PollingStation(Long.parseLong(process("Code:")),
 					process("Province:"), process("City:"),
 					process("District:"), process("Country:")));
-			if (process("Exit polling station adding?(Y/N)").toLowerCase()
-					.equals("y"))
+			if (process("Exit polling station adding?(Y/N)").equalsIgnoreCase("y"))
 				more = false;
 		}
 	}
@@ -103,7 +98,7 @@ public class Main {
 		out.println(text);
 		String temp = input.next();
 
-		assert temp != "Q";
+		assert temp.equalsIgnoreCase("Q");
 		return temp;
 	}
 
@@ -115,8 +110,7 @@ public class Main {
 			type = "Referendum";
 			break;
 		case 2:
-			while (process("Add a new voting option? (Y/N)").toLowerCase()
-					.equals("y")) {
+			while (process("Add a new voting option? (Y/N)").equalsIgnoreCase("y")) {
 				int i = 1;
 				options.add(new Option(i, process("Name:"),
 						process("Comments:")));

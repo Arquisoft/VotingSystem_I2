@@ -1,4 +1,4 @@
-package es.uniovi.DBUpdate;
+package es.uniovi.databasemanager;
 
 import es.uniovi.DBUpdate.util.Jdbc;
 import es.uniovi.ReportWriter.WReportP;
