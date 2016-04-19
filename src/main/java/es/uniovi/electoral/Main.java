@@ -1,4 +1,4 @@
-package es.uniovi.electoral.main;
+package es.uniovi.electoral;
 
 import java.io.PrintWriter;
 import java.sql.Timestamp;

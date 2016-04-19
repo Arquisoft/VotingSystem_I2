@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import es.uniovi.Electoral.main.Main;
+import es.uniovi.electoral.Main;
 
 
 public class ElectoralTest {

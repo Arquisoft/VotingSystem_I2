@@ -1,4 +1,4 @@
-package es.uniovi.DB.Bussines;
+package es.uniovi.db.bussiness;
 
 public class VerificationException extends Exception {
 
