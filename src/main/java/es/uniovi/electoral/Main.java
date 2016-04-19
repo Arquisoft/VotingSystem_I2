@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import es.uniovi.electoral.model.*;
+import es.uniovi.electoral.model.Configuration;
+import es.uniovi.electoral.model.Option;
+import es.uniovi.electoral.model.PollingStation;
 
 public class Main {
 
@@ -28,7 +30,7 @@ public class Main {
 	public static void run(Scanner scanner, PrintWriter out) {
 		scnr = scanner;
 		prnt = out;
-		out.println("Welcome to the Electoral Process Management\n\n"
+		print("Welcome to the Electoral Process Management\n\n"
 				+ "Please select an electoral option:" + "\n\t1- Referendum"
 				+ "\n\t2- Election");
 		Integer option = null;
@@ -38,7 +40,7 @@ public class Main {
 				option = Integer
 						.parseInt(process("Introduce an option number"));
 			} catch (Exception e) {
-				out.println("Invalid data, please try again");
+				print("Invalid data, please try again");
 				option = null;
 			}
 		}
@@ -46,12 +48,17 @@ public class Main {
 			options(option);
 			stations();
 			configuration();
+			new CreateR().create(conf, options, stations);
 		} catch (Exception e) {
-			out.println("Invalid data or format, exiting manager");
+			print("Invalid data or format, exiting manager");
 		} finally {
-			out
-					.println("Thank you for using our electoral system manager");
+			print("Thank you for using our electoral system manager");
 		}
+	}
+
+	private static void print(String printString) {
+		prnt.println(printString);
+		System.out.println(printString);			
 	}
 
 	private static void configuration() {
@@ -61,14 +68,13 @@ public class Main {
 		String[] temp = date.split("/");
 		String[] temp2 = time.split(":");
 		Timestamp start = new Timestamp(Integer.parseInt(temp[2]) - 1990,
-				Integer.parseInt(temp[1]), Integer.parseInt(temp[0]),
+				Integer.parseInt(temp[1]) -1, Integer.parseInt(temp[0]),
 				Integer.parseInt(temp2[0]), Integer.parseInt(temp2[1]), 0, 0);
-		prnt.println(start);
 		date = process("Closing date of elections (dd/mm/yyyy):");
 		time = process("Time of closing (hh:mm):");
 		temp = date.split("/");
 		temp2 = time.split(":");
-		Timestamp end = new Timestamp(Integer.parseInt(temp[2]),
+		Timestamp end = new Timestamp(Integer.parseInt(temp[2]) -1990,
 				Integer.parseInt(temp[1]) - 1, Integer.parseInt(temp[0]),
 				Integer.parseInt(temp2[0]), Integer.parseInt(temp2[1]), 0, 0);
 
@@ -78,8 +84,7 @@ public class Main {
 	}
 
 	private static void stations() {
-		prnt
-				.println("Please fill out the information of the polling stations");
+		print("Please fill out the information of the polling stations");
 		boolean more = true;
 		while (more) {
 			stations.add(new PollingStation(Long.parseLong(process("Code:")),
@@ -95,10 +100,8 @@ public class Main {
 	}
 
 	public static String process(String text, Scanner input, PrintWriter out) {
-		out.println(text);
+		print(text);
 		String temp = input.next();
-
-		assert temp.equalsIgnoreCase("Q");
 		return temp;
 	}
 
@@ -121,6 +124,6 @@ public class Main {
 		default:
 			throw new Exception();
 		}
-		prnt.println("Voting options completed");
+		print("Voting options completed");
 	}
 }

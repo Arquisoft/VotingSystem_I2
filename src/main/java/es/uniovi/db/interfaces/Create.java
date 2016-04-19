@@ -1,6 +1,5 @@
 package es.uniovi.db.interfaces;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import es.uniovi.electoral.model.Configuration;
