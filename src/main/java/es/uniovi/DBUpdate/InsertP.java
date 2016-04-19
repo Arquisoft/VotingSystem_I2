@@ -1,9 +1,9 @@
-package es.uniovi.DBUpdate;
+package es.uniovi.dbupdate;
 
-import es.uniovi.DBUpdate.Bussines.VerificationException;
-import es.uniovi.DBUpdate.util.FormFormat;
-import es.uniovi.DBUpdate.util.Jdbc;
-import es.uniovi.ReportWriter.WReportP;
+import es.uniovi.dbupdate.bussines.VerificationException;
+import es.uniovi.dbupdate.util.FormFormat;
+import es.uniovi.dbupdate.util.Jdbc;
+import es.uniovi.reportwriter.WReportP;
 import es.uniovi.parser.Voter;
 
 import java.sql.Connection;
