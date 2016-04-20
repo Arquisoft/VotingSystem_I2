@@ -10,9 +10,19 @@ Voting System
 # Authors
 
 * Jose Labra
-* Alejandro Pazos
-* Daniel Ortea Mendez
 * Santiago Casero Laredo
+ 
+
+
+# Jdbc instructions
+
+We have 3 diferent lines for database URL, 2 of which are commented. You must leave the one appropriate to your operating system without comment and comment the rest for the application to work.
+
+
+#Voting
+
+The system for Voting has been created in its own branch named "Voting"
+
 
 
 
