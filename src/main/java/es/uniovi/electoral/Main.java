@@ -64,6 +64,7 @@ public class Main {
 		System.out.println(printString);			
 	}
 
+	@SuppressWarnings("deprecation")
 	private static void configuration() {
 		String name = process("Name your elections");
 		String date = process("Opening date of elections (dd/mm/yyyy):");
