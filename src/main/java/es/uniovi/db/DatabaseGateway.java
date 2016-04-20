@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.sqlite.JDBC;
-
 import es.uniovi.db.util.Jdbc;
 import es.uniovi.electoral.model.Configuration;
 import es.uniovi.electoral.model.Option;
