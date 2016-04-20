@@ -8,9 +8,9 @@ public class Jdbc {
 
 	private static String DRIVER = "org.sqlite.JDBC";
 
-	//private static String URL = "jdbc:sqlite:sqlite/asw.db";
-	//private static String URL = "jdbc:sqlite:C:\\sqlite\\asw.db";
-	private static String URL = "jdbc:sqlite:/home/travis/build/Arquisoft/VotingSystem_I2/sqlite/asw.db";
+	private static String URL = "jdbc:sqlite:sqlite/asw.db"; //MAC
+	//private static String URL = "jdbc:sqlite:C:\\sqlite\\asw.db"; //WINDOWS
+	//private static String URL = "jdbc:sqlite:/home/travis/build/Arquisoft/VotingSystem_I2/sqlite/asw.db"; //TRAVIS
 
 	static {
 		try {

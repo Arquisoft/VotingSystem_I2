@@ -12,7 +12,7 @@ import es.uniovi.electoral.model.PollingStation;
 
 public class DatabaseGateway {
 
-	public void insertOption(Connection conn, Option option) throws SQLException {
+	public void insertOption(Option option) throws SQLException {
 		Connection con = Jdbc.getConnection();
 		PreparedStatement ps = con.prepareStatement("Insert into OPTIONS Values (?,?,?)");
 		
@@ -25,7 +25,7 @@ public class DatabaseGateway {
 		con.close();
 	}
 
-	public void reset(Connection conn) throws SQLException {
+	public void reset() throws SQLException {
 		Connection con = Jdbc.getConnection();
 		Statement st = con.createStatement();
 		
@@ -38,7 +38,7 @@ public class DatabaseGateway {
 		con.close();
 	}
 
-	public void insertStation(Connection conn, PollingStation station)
+	public void insertStation(PollingStation station)
 			throws SQLException {
 		Connection con = Jdbc.getConnection();
 		PreparedStatement ps = con
@@ -55,7 +55,7 @@ public class DatabaseGateway {
 		con.close();
 	}
 
-	public void configure(Connection conn, Configuration conf) throws SQLException {
+	public void configure(Configuration conf) throws SQLException {
 		Connection con = Jdbc.getConnection();
 		PreparedStatement ps = con.prepareStatement("INSERT INTO CONFIGURATION VALUES (?,?,?,?,?)");
 		
