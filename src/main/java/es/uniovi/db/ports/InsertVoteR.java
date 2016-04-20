@@ -13,9 +13,10 @@ public class InsertVoteR implements InsertVote {
 		DatabaseGateway dbg = new DatabaseGateway();
 		try {
 			dbg.inserVote(opt, code);
-			return "Voto guardado con exito";
+			return "Vote has been stored";
 		} catch (SQLException e) {
-			return "Ha habido un problema al guardar tu voto";
+			System.out.print(e);
+			return "There was an issue storing your vote";
 		}
 	}
 

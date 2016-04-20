@@ -8,9 +8,9 @@ public class Jdbc {
 
 	private static String DRIVER = "org.sqlite.JDBC";
 
-	private static String URL = "jdbc:sqlite:sqlite/asw.db"; //MAC
+	//private static String URL = "jdbc:sqlite:sqlite/asw.db"; //MAC
 	//private static String URL = "jdbc:sqlite:C:\\sqlite\\asw.db"; //WINDOWS
-	//private static String URL = "jdbc:sqlite:/home/travis/build/Arquisoft/VotingSystem_I2/sqlite/asw.db"; //TRAVIS
+	private static String URL = "jdbc:sqlite:/home/travis/build/Arquisoft/VotingSystem_I2/sqlite/asw.db"; //TRAVIS
 
 	static {
 		try {
@@ -21,6 +21,8 @@ public class Jdbc {
 	}
 
 	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(URL);
+		Connection con = DriverManager.getConnection(URL);
+		con.setAutoCommit(false);
+		return con;
 	}
 }

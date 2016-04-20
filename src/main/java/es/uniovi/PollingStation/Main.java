@@ -41,13 +41,17 @@ public class Main {
 			print("There has been an issue reading options from the database.");
 		} else {
 			print("Please select an option: ");
-			int i = 0;
+			int i = 1;
 			for (Option opt : options) {
-				print("\t" + i++ + opt.toString());
+				print("\t"+ opt.toString());
+				i++;
 			}
 			int opt = Integer.parseInt(process(""));
 
-			InsertVoteP.insertVote(opt, voter);
+			if (opt < i) {
+			print(InsertVoteP.insertVote(opt, voter));
+			} else 
+				print ("Selected option is not available");
 		}
 	}
 
@@ -58,7 +62,7 @@ public class Main {
 
 		voter = VoterP.getVoter(login, pass);
 
-		return voter == null;
+		return voter != null;
 	}
 
 	private static void print(String printString) {

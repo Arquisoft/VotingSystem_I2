@@ -20,5 +20,15 @@ public class Option {
 	public String getComment() {
 		return comment;
 	}
+	@Override
+	public String toString() {
+		String res= id + ": " + name;
+		if (!comment.equals(""))
+			res += ", " + comment;
+		return res;
+	}
 		
+
+	
 }
+

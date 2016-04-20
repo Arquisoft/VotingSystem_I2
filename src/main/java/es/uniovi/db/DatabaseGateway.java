@@ -112,7 +112,7 @@ public class DatabaseGateway {
 		
 		ps.executeUpdate();
 		
-		ps = con.prepareStatement("UPDATE VOTERS SET HAS_VOTED = true WHERE email = ?");
+		ps = con.prepareStatement("UPDATE VOTERS SET HAS_EVOTED = 1 WHERE email = ?");
 		ps.setString(1, voter.getLogin());
 		
 		ps.executeUpdate();
