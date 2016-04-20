@@ -1,4 +1,4 @@
-package es.uniovi.electoral;
+package es.uniovi.voting;
 
 import java.io.PrintWriter;
 import java.security.InvalidParameterException;
@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import es.uniovi.electoral.model.Configuration;
-import es.uniovi.electoral.model.Option;
-import es.uniovi.electoral.model.PollingStation;
+import es.uniovi.voting.model.*;
 
 public class Main {
 

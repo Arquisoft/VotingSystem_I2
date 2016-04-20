@@ -1,4 +1,4 @@
-package es.uniovi.electoral;
+package es.uniovi.voting;
 
 import java.util.List;
 
@@ -6,9 +6,7 @@ import com.sun.media.sound.InvalidDataException;
 
 import es.uniovi.db.interfaces.Create;
 import es.uniovi.db.ports.CreateP;
-import es.uniovi.electoral.model.Configuration;
-import es.uniovi.electoral.model.Option;
-import es.uniovi.electoral.model.PollingStation;
+import es.uniovi.voting.model.*;
 
 public class CreateR {
 

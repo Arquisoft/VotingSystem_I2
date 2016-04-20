@@ -9,9 +9,7 @@ import com.sun.media.sound.InvalidDataException;
 import es.uniovi.db.DatabaseGateway;
 import es.uniovi.db.interfaces.Create;
 import es.uniovi.db.util.Jdbc;
-import es.uniovi.electoral.model.Configuration;
-import es.uniovi.electoral.model.Option;
-import es.uniovi.electoral.model.PollingStation;
+import es.uniovi.voting.model.*;
 
 public class CreateP implements Create {
 

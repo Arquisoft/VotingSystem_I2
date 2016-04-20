@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.sun.media.sound.InvalidDataException;
 
-import es.uniovi.electoral.model.Configuration;
-import es.uniovi.electoral.model.Option;
-import es.uniovi.electoral.model.PollingStation;
+import es.uniovi.voting.model.*;
 
 public interface Create {
 

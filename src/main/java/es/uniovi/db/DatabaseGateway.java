@@ -6,9 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import es.uniovi.db.util.Jdbc;
-import es.uniovi.electoral.model.Configuration;
-import es.uniovi.electoral.model.Option;
-import es.uniovi.electoral.model.PollingStation;
+import es.uniovi.voting.model.*;
 
 public class DatabaseGateway {
 
