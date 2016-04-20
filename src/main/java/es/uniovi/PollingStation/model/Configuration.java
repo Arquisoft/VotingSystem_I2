@@ -1,4 +1,4 @@
-package es.uniovi.voting.model;
+package es.uniovi.PollingStation.model;
 
 import java.sql.Timestamp;
 
