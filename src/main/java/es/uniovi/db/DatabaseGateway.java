@@ -44,7 +44,7 @@ public class DatabaseGateway {
 			}
 			
 			code = Integer.parseInt(rs.getString(5));
-			v = new Voter(rs.getString(2), rs.getString(4), code);
+			v = new Voter(rs.getString(2), code);
 		}
 		
 		ps = con
