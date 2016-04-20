@@ -10,7 +10,8 @@ public class Jdbc {
 
 	private static String DRIVER = "org.sqlite.JDBC";
 	private static String URL = "jdbc:sqlite:sqlite/asw.db";
-
+	private static ThreadLocal<Connection> threadConnection = new ThreadLocal<Connection>();
+	
 	static {
 		try {
 			Class.forName(DRIVER);
@@ -67,8 +68,6 @@ public class Jdbc {
 		threadConnection.set(con);
 		return con;
 	}
-
-	private static ThreadLocal<Connection> threadConnection = new ThreadLocal<Connection>();
 
 	public static Connection getCurrentConnection() {
 		return threadConnection.get();

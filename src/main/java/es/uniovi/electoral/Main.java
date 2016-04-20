@@ -1,6 +1,7 @@
 package es.uniovi.electoral;
 
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +16,10 @@ public class Main {
 	private static Scanner scnr = null;
 	private static PrintWriter prnt = null;
 	
-	private static List<Option> options = new ArrayList<Option>();
-	private static List<PollingStation> stations = new ArrayList<PollingStation>();
+	private static List<Option> options;
+	private static List<PollingStation> stations ;
 	private static String type = "";
-	static Configuration conf;
+	private static Configuration conf;
 
 	/**
 	 * @param args
@@ -28,6 +29,8 @@ public class Main {
 	}
 
 	public static void run(Scanner scanner, PrintWriter out) {
+		options = new ArrayList<Option>();
+		stations = new ArrayList<PollingStation>();
 		scnr = scanner;
 		prnt = out;
 		print("Welcome to the Electoral Process Management\n\n"
@@ -67,20 +70,22 @@ public class Main {
 		String time = process("Time of opening (hh:mm):");
 		String[] temp = date.split("/");
 		String[] temp2 = time.split(":");
-		Timestamp start = new Timestamp(Integer.parseInt(temp[2]) - 1990,
+		Timestamp start = new Timestamp(Integer.parseInt(temp[2]) - 1900,
 				Integer.parseInt(temp[1]) -1, Integer.parseInt(temp[0]),
 				Integer.parseInt(temp2[0]), Integer.parseInt(temp2[1]), 0, 0);
 		date = process("Closing date of elections (dd/mm/yyyy):");
 		time = process("Time of closing (hh:mm):");
 		temp = date.split("/");
 		temp2 = time.split(":");
-		Timestamp end = new Timestamp(Integer.parseInt(temp[2]) -1990,
+		Timestamp end = new Timestamp(Integer.parseInt(temp[2]) -1900,
 				Integer.parseInt(temp[1]) - 1, Integer.parseInt(temp[0]),
 				Integer.parseInt(temp2[0]), Integer.parseInt(temp2[1]), 0, 0);
 
 		String comments = process("Additional comments:");
 
 		conf = new Configuration(name, start, end, type, comments);
+
+		print("Configuration completed");
 	}
 
 	private static void stations() {
@@ -93,6 +98,8 @@ public class Main {
 			if (process("Exit polling station adding?(Y/N)").equalsIgnoreCase("y"))
 				more = false;
 		}
+		print("Polling stations completed");
+		
 	}
 
 	private static String process(String text) {
@@ -101,7 +108,7 @@ public class Main {
 
 	public static String process(String text, Scanner input, PrintWriter out) {
 		print(text);
-		String temp = input.next();
+		String temp = input.nextLine();
 		return temp;
 	}
 
@@ -113,16 +120,18 @@ public class Main {
 			type = "Referendum";
 			break;
 		case 2:
-			while (process("Add a new voting option? (Y/N)").equalsIgnoreCase("y")) {
-				int i = 1;
+			boolean more = true;
+			int i = 1;
+			while (more) {
 				options.add(new Option(i, process("Name:"),
 						process("Comments:")));
 				i++;
+				more = process("Add a new voting option? (Y/N)").equalsIgnoreCase("y");
 			}
 			type = "Elections";
 			break;
 		default:
-			throw new Exception();
+			throw new InvalidParameterException();
 		}
 		print("Voting options completed");
 	}
